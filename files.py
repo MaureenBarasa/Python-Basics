@@ -14,18 +14,18 @@ make_folders()
 
 #f = open("datatypes.py", "x")
 
+#function to create files
 
-#creating a text file with the command function "w"
-f = open("demofile.txt", "w")
+def create_files ():
+    f = open ("demofile.txt", 'w') #create file on current directory
+    with open ("./myfolder2/demofile2.txt", "w") as file: #create a file on a specific folder and add data to the file
+        file.write ("I am learning Python!\n")
+        file.write ("I am really enjoying it!\n")
+        file.write ("And I want to add more lines to say how much I like it")
 
+create_files()
 
-#create a file on a specific folder and add data to the file
-with open("./myfolder2/demofile2.txt", "x") as file:
-    file.write("I am learning Python!\n")
-    file.write ("I am really enjoying it!\n")
-    file.write ("And I want to add more lines to say how much I like it")
-
-#This "w" command can also be used create a new file but unlike the the "x" command the "w" command will overwrite any existing file found with the same file name.
+#the "w" command can also be used create a new file but unlike the the "x" command the "w" command will overwrite any existing file found with the same file name.
 
 #function to remove/delete a file
 
@@ -51,10 +51,6 @@ def remove_folder_if_it_exists():
        print("the folder does not exist")
 
 remove_folder_if_it_exists()
-
-
-
-
 
 
 

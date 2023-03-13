@@ -1,5 +1,15 @@
 import os
 
+#function to create folders from names on a list (check if folders exists and creates them if they do not exist)
+
+def make_folders ():
+    folders = ["myfolder1", "myfolder2"]
+    for folder in folders:
+        os.makedirs(folder, exist_ok=True)
+
+make_folders()
+
+
 #creating a file with the command function "x" (Create Command). this command will create a new file if and only if there is no file already in existence with that name or else it will return an error.
 
 #f = open("datatypes.py", "x")
@@ -8,11 +18,14 @@ import os
 #creating a text file with the command function "w"
 f = open("demofile.txt", "w")
 
+
+#create a file on a specific folder and add data to the file
+with open("./myfolder2/demofile2.txt", "x") as file:
+    file.write("I am learning Python!\n")
+    file.write ("I am really enjoying it!\n")
+    file.write ("And I want to add more lines to say how much I like it")
+
 #This "w" command can also be used create a new file but unlike the the "x" command the "w" command will overwrite any existing file found with the same file name.
-
-
-#create a folder
-y = os.mkdir("myfolder")
 
 #function to remove/delete a file
 
@@ -28,16 +41,21 @@ remove_file_if_it_exists()
 #function to check if a folder exists and if empty delete the folder
 
 def remove_folder_if_it_exists():
-   isdir = os.path.isdir("myfolder")
+   isdir = os.path.isdir("myfolder1")
    if isdir == True:
-       if len(os.listdir("myfolder")) == 0:
-           os.rmdir("myfolder")
+       if len(os.listdir("myfolder1")) == 0:
+           os.rmdir("myfolder1")
        else:
            print("the folder is not empty")
    else:
        print("the folder does not exist")
 
 remove_folder_if_it_exists()
+
+
+
+
+
 
 
 

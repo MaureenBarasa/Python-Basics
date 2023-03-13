@@ -6,9 +6,13 @@ import os
 
 
 #creating a text file with the command function "w"
-#f = open("numbers.py", "w")
+f = open("demofile.txt", "w")
 
 #This "w" command can also be used create a new file but unlike the the "x" command the "w" command will overwrite any existing file found with the same file name.
+
+
+#create a folder
+y = os.mkdir("myfolder")
 
 #function to remove/delete a file
 
@@ -34,6 +38,12 @@ def remove_folder_if_it_exists():
        print("the folder does not exist")
 
 remove_folder_if_it_exists()
+
+
+
+
+
+
 
 
 

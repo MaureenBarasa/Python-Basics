@@ -15,17 +15,48 @@ make_folders()
 #f = open("datatypes.py", "x")
 
 #function to create files
-
 def create_files ():
-    f = open ("demofile.txt", 'w') #create file on current directory
-    with open ("./myfolder2/demofile2.txt", "w") as file: #create a file on a specific folder and add data to the file
+    f = open ("demofile.txt", 'w') #create file on current directory if it does not exist
+    with open ("./myfolder2/demofile2.txt", "w") as file: #create a file on a specific folder and add data to the file if it does not exist already
         file.write ("I am learning Python!\n")
         file.write ("I am really enjoying it!\n")
         file.write ("And I want to add more lines to say how much I like it")
 
 create_files()
 
-#the "w" command can also be used create a new file but unlike the the "x" command the "w" command will overwrite any existing file found with the same file name.
+"""
+"r"   Opens a file for reading only.
+"r+"  Opens a file for both reading and writing.
+"rb"  Opens a file for reading only in binary format.
+"rb+" Opens a file for both reading and writing in binary format.
+"w"   Opens a file for writing only.
+"a"   Open for writing. The file is created if it does not exist.
+"a+"  Open for reading and writing.  The file is created if it does not exist.
+
+"""
+
+#function to append a line to the end of a file
+def append_a_line_to_a_file ():
+    with open ("./myfolder2/demofile2.txt", "a+") as file:
+        file.seek(0) #go to the top of the file
+        data = file.read()
+        if len(data) > 0 :
+            file.write("\n")
+        file.write("this is a new line")
+
+append_a_line_to_a_file ()
+
+def append_multiple_lines_to_a_file ():
+    with open ("./myfolder2/demofile2.txt", "a+") as file:
+        lines = ["this is a second line added", "this is a third line added"]
+        for line in lines:
+            file.seek(0)  #go to the top of the file
+            data = file.read() #read the entire file
+            if len(data) > 0:
+                file.write("\n")
+            file.write(line)
+
+append_multiple_lines_to_a_file ()
 
 #function to remove/delete a file
 
@@ -51,6 +82,14 @@ def remove_folder_if_it_exists():
        print("the folder does not exist")
 
 remove_folder_if_it_exists()
+
+
+
+
+
+
+
+
 
 
 

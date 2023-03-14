@@ -15,4 +15,14 @@ def timezones ():
     zones = pytz.all_timezones
     print(zones)
 
-timezones() 
+timezones()
+
+#function to get current date and time based on time zone
+
+def current_time_in_nairobi ():
+    Nairobi_TZ = pytz.timezone("Africa/Nairobi")
+    NairobiTime = datetime.datetime.now(Nairobi_TZ)
+    currentTimeInNairobi = NairobiTime.strftime("%Y:%b:%a:%d:%H:%M:%S:%p")
+    print(currentTimeInNairobi)
+
+current_time_in_nairobi()
